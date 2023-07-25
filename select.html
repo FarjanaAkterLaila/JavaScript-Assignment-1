@@ -24,8 +24,19 @@
     </div>
     
     <div class="info">
-        <p id="infoText"></p>
-    </div></section>
+        <table id="infoTable">
+            <thead id="infoTableHeader">
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                </tr>
+            </thead>
+            <tbody id="infoTableBody">
+             
+            </tbody>
+        </table>
+    </div>
+</section>
   
 
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
@@ -130,10 +141,29 @@
         }
 
         function updateInfo(option) {
-            const infoText = document.getElementById("infoText");
+            const infoTableHeader = document.getElementById("infoTableHeader");
+            const infoTableBody = document.getElementById("infoTableBody");
             const info = optionsInfo[option];
-            const infoHTML = info.map(item => `<strong style='color:blue;'>${item.question}</strong><br>${item.answer}`).join('<br><br>');
-            infoText.innerHTML = infoHTML;
+
+           
+            infoTableBody.innerHTML = "";
+
+            
+            info.forEach(item => {
+                const row = document.createElement("tr");
+                const questionCell = document.createElement("td");
+                const answerCell = document.createElement("td");
+
+                questionCell.textContent = item.question;
+                answerCell.textContent = item.answer;
+
+                row.appendChild(questionCell);
+                row.appendChild(answerCell);
+                infoTableBody.appendChild(row);
+            });
+
+            
+            infoTableHeader.style.display = (info.length > 0) ? "table-header-group" : "none";
         }
 
         let dropdown = document.querySelector('.dropdown');
