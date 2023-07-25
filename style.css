@@ -111,6 +111,41 @@ header{
     display: none;
 }
 
+/* Media Queries for Mobile Devices */
+
+
+@media only screen and (max-width: 768px) {
+    body {
+        top: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+header{
+top: 0;
+   margin-left: 10px;
+    font-size: 8px;
+}
+    .main {
+      top: 0;
+        width: 90%; /* Adjust the width for smaller screens */
+    }
+
+   
+    .dropdown {
+        padding-bottom: 0;
+        width: 90%; 
+    }
+
+    .info table {
+      width: 0;
+    }
+    .info th, .info td {
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+  
+
+}
 
 
 
