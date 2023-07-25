@@ -118,11 +118,11 @@ header{
     body {
         top: 0;
        
-        
+        right: 0;
     }
 header{
 top: 0;
-   margin-left: 10px;
+  margin-left: 2px;
     font-size: 8px;
 }
     .main {
@@ -139,10 +139,7 @@ top: 0;
     .info table {
       width: 90%;
     }
-    .info th, .info td {
-        padding: 10px;
-        border: 1px solid #ccc;
-    }
+   
   
 
 }
