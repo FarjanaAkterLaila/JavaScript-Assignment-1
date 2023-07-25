@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selected Option</title>
+    <script src="https://kit.fontawesome.com/1420b5a15f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    
+            <header><h1>Select your item and see the related questions and answers.</h1></header>
+        
+      <section class="main">  <div class="dropdown">
+
+        <input type="text" class="text-box" id="selectedOption" placeholder="Select one option" readonly>
+        <div class="option" id="options">
+            <div onclick="selectOption('Html')"><ion-icon name="logo-html5"></ion-icon>Html</div>
+            <div onclick="selectOption('CSS')"><ion-icon name="logo-css3"></ion-icon>CSS</div>
+            <div onclick="selectOption('JavaScript')"><ion-icon name="logo-nodejs"></ion-icon>JavaScript</div>
+            <div onclick="selectOption('ReactJs')"><i class="fa-brands fa-react"></i>ReactJs</div>
+        </div>
+    </div>
+    
+    <div class="info">
+        <p id="infoText"></p>
+    </div></section>
+  
+
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script>
+          const optionsInfo = {
+            'Html': [
+                {
+                    question: '1. What is HTML?',
+                    answer: 'HTML is a markup language used to create the structure of a web page.',
+                },
+                {
+                    question: '2. What are HTML tags?',
+                    answer: 'HTML tags are elements used to define the structure and content of a web page.',
+                },
+                {
+                    question: '3. What do HTML attributes mean?',
+                    answer: 'We add attributes right after the name of the HTML tag, inside the brackets. We can only add attributes to opening or self-closing tags; never closing tags. Attributes are the properties that can be added to an HTML tag; these attributes change how the tag behaves or is displayed. For example, an <img> tag has a src attribute, which we use to add the source from which the image should be displayed.',
+                },
+                {
+                    question: '4. What do HTML Lists do?',
+                    answer: 'HTML lists are used to organize a collection of connected elements into lists. An< li> tag is used to specify it.Now usually used HTML Lists are:Ordered List,Unordered List,Description List,Menu List,Directory List.',
+                },
+                {
+                    question: '5. What do HTML forms do?',
+                    answer: 'When forms are filled out, users information is collected, and details are given so that the database can store them.',
+                },
+               
+            ],
+            'CSS': [
+                {
+                    question: '1. What is CSS?',
+                    answer: 'CSS is a styling language used to control the presentation of a web page.',
+                },
+                {
+                    question: '2. What are CSS selectors?',
+                    answer: 'CSS selectors are patterns used to select and style HTML elements.',
+                },
+                {
+                    question: '3. What is the CSS box model?',
+                    answer: 'An element can be seen as a rectangular box using the CSS box model. Content, padding, border, and margin are its component parts. The padding and border around the content are followed by the margin, which is the outermost region.',
+                },
+                {
+                    question: '4. What does the CSS property "float" mean?',
+                    answer: 'An elements position within its parent container can be determined using the float property. It has three settings: left, right, and none. Floating elements are placed to the left or right of their container and removed from the typical page flow.',
+                },
+                {
+                    question: '5. What do CSS gradients mean?',
+                    answer: 'The gradient is a feature that enables seamless switching between two or more designated colors. In CSS, there are two different gradient types:Linear Gradient,Radial Gradient',
+                },
+               
+            ],
+            'JavaScript': [
+                {
+                    question: '1. What is JavaScript?',
+                    answer: 'JavaScript is a programming language used to add interactivity to web pages.',
+                },
+                {
+                    question: '2. What are variables in JavaScript?',
+                    answer: 'Variables are used to store data values in JavaScript.',
+                },
+                {
+                    question: '3. What different sorts of data are there in JavaScript?',
+                    answer: 'Numerous forms of data are supported by JavaScript, including numbers, texts, booleans, objects, null, undefined, symbols, and large integers. ',
+                },
+                {
+                    question: '4. Describe the JavaScript idea of scope.',
+                    answer: 'The visibility and use of variables and functions within a specific section of code are referred to as the scope of a JavaScript program.',
+                },
+                {
+                    question: '5. What does JavaScripts event-driven programming entail?',
+                    answer: 'Event-driven programming in JavaScript involves running specific code in response to user input or system events, such as clicks or timers.',
+                },
+               
+            ],
+            'ReactJs': [
+                {
+                    question: '1. What is ReactJS?',
+                    answer: 'ReactJS is a popular JavaScript library for building user interfaces.',
+                },
+                {
+                    question: '2. What is a React component?',
+                    answer: 'A React component is a reusable piece of code that defines the UI and behavior of a part of a web page.',
+                },
+                {
+                    question: '3. What are the main characteristics of React?',
+                    answer: 'Virtual DOM: In order to streamline UI updates, React uses a virtual version of the DOM.\n\nComponent-based architecture: React employs a modular strategy, enabling programmers to create reusable UI components.\n\nJSX: JSX is a syntactic extension that enables you to define React components by writing JavaScript code that like HTML.\n\nUnidirectional data flow: React uses a one-way data flow, which facilitates tracking and managing data changes.',
+                },
+                {
+                    question: '4. What is the meaning of JSX?',
+                    answer: 'JSX is a JavaScript syntactic extension that enables you to construct HTML-like code inside of JavaScript. In React, its used to provide a more visible and understandable description of the layout and contents of components.',
+                },
+                {
+                    question: '5. Describe React Router.',
+                    answer: 'React Router is a routing library that enables you to expand your applications screen flows and maintains URL synchronization with what is displayed on the page.',
+                },
+                
+            ],
+        };
+        function selectOption(option) {
+            document.getElementById("selectedOption").value = option;
+            updateInfo(option);
+        }
+
+        function updateInfo(option) {
+            const infoText = document.getElementById("infoText");
+            const info = optionsInfo[option];
+            const infoHTML = info.map(item => `<strong style='color:blue;'>${item.question}</strong><br>${item.answer}`).join('<br><br>');
+            infoText.innerHTML = infoHTML;
+        }
+
+        let dropdown = document.querySelector('.dropdown');
+        dropdown.onclick = function(){
+            dropdown.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
